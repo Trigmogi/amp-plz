@@ -1,7 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
+import { Amplify, Analytics } from 'aws-amplify';
+import awsconfig from './aws-exports';
+
+Amplify.configure(awsconfig);
 
 function App() {
+  Analytics.record({ name: 'albumVisit' });
+  Analytics.record({ blah: 'sup dude' });
   return (
     <div className="App">
       <header className="App-header">

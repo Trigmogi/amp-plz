@@ -1,0 +1,12 @@
+{
+  "version": "1",
+  "cognitoConfig": {
+    "identityPoolName": "ampplz_identitypool_9c1a79d5",
+    "allowUnauthenticatedIdentities": true,
+    "authSelections": "identityPoolOnly",
+    "resourceName": "ampplz",
+    "sharedId": "9c1a79d5",
+    "serviceName": "Cognito",
+    "useDefault": "manual"
+  }
+}
