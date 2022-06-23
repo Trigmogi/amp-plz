@@ -1,19 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
-import { Amplify, Analytics } from 'aws-amplify';
+import Amplify, { Auth } from 'aws-amplify';
+import Analytics from '@aws-amplify/analytics';
 import awsconfig from './aws-exports';
 
 
 Amplify.configure(awsconfig);
+Analytics.autoTrack('pageView', {
+  enable: true,
+  type: 'SPA'
+});
+
+Analytics.autoTrack('event', {
+  enable: true
+});
+
 
 function App() {
-  Analytics.autoTrack('session', {
-    enable: true
-  });
-  console.log('eyyy')
-  Analytics.record({ name: 'albumVisit' });
-  console.log('eyyy')
-  // Analytics.record({ blah: 'sup dude' });
+  Analytics.record({ name: 'createDeal-start'});
   return (
     <div className="App">
       <header className="App-header">
