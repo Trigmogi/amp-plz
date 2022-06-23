@@ -41,7 +41,17 @@ function App() {
         "safasf": 'gdsgd',
         timestamp: new Date()
     },
-    streamName: 'ampplzKinesis-dev' 
+    streamName: 'ampplzKinesis-power' 
+}, 'AWSKinesis')
+
+Analytics.record({
+  data: {
+      eventType: 'PageView',
+      userId: 'fsf',
+      "safasf": 'fff',
+      timestamp: Date()
+  },
+  streamName: 'ampplzKinesis' 
 }, 'AWSKinesis')
 
   return (
