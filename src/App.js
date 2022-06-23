@@ -20,7 +20,7 @@ function App() {
         "safasf": 'gdsgd',
         timestamp: new Date()
     },
-    streamName: 'work-dev' 
+    streamName: 'ampplzKinesis-dev' 
 }, 'AWSKinesis')
 
   return (
