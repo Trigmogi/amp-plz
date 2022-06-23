@@ -1,23 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
-import Amplify, { Auth } from 'aws-amplify';
-import Analytics from '@aws-amplify/analytics';
+import { Analytics, AmazonPersonalizeProvider, AWSKinesisProvider } from '@aws-amplify/analytics';
 import awsconfig from './aws-exports';
 
 
-Amplify.configure(awsconfig);
-Analytics.autoTrack('pageView', {
-  enable: true,
-  type: 'SPA'
-});
+Analytics.addPluggable(new AWSKinesisProvider());
 
-Analytics.autoTrack('event', {
-  enable: true
+Analytics.configure({
+  AWSKinesis: {
+    region: 'us-east-1'
+  }
 });
-
 
 function App() {
-  Analytics.record({ name: 'createDeal-start'});
+  Analytics.record({
+    data: {
+        eventType: 'PageView',
+        userId: 'me',
+        "safasf": 'gdsgd',
+        timestamp: new Date()
+    },
+    streamName: 'work-dev' 
+}, 'AWSKinesis')
+
   return (
     <div className="App">
       <header className="App-header">
